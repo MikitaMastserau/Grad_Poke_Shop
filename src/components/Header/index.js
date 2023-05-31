@@ -8,7 +8,6 @@ import { ROUTE_NAMES } from "routes/routeNames";
 
 import styles from "./styles.module.scss";
 
-
 export const Header = () => {
    const isAuthenticated = useSelector(isAuthenticatedSelector);
 
