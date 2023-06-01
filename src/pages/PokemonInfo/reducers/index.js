@@ -21,15 +21,16 @@ const pokemonInfoSlice = createSlice({
       builder
          .addCase(getPokemonInfoThunk.pending, (state) => {
             state.isLoading = true;
+            state.errors = null;
          })
          .addCase(getPokemonInfoThunk.fulfilled, (state, { payload }) => {
             const { name, stats, abilities, sprites } = payload;
 
-            state.isLoading = false;
             state.name = name;
             state.stats = createStatsList(stats);
             state.abilities = createAbilitiesList(abilities);
             state.sprites = sprites;
+            state.isLoading = false;
 
          })
          .addCase(getPokemonInfoThunk.rejected, (state, { error }) => {

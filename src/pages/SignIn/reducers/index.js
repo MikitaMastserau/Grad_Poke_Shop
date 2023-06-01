@@ -17,13 +17,16 @@ const authSlice = createSlice({
       builder
          .addCase(signInThunk.pending, (state) => {
             state.isLoading = true;
+            state.errors = null;
          })
          .addCase(signInThunk.fulfilled, (state, { payload }) => {
-            state.isLoading = false;
-            state.isAuthenticated = true;
             state.profileData = payload;
+            state.isAuthenticated = true;
+            state.isLoading = false;
+            state.errors = null;
          })
          .addCase(signInThunk.rejected, (state, { payload }) => {
+            state.profileData = {};
             state.isLoading = false;
             state.errors = payload;
          })

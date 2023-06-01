@@ -1,0 +1,35 @@
+.wrapper {
+   display: flex;
+
+   .itemsList {
+      display: flex;
+      flex-direction: column;
+
+      .item {
+         display: flex;
+         align-items: center;
+         gap: 30px;
+
+         >img {
+            height: 200px;
+            width: 200px;
+         }
+
+         .price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 5px;
+
+            >img {
+               height: 20px;
+               width: 20px;
+            }
+
+            >p {
+               color: darkgoldenrod;
+            }
+         }
+      }
+   }
+}

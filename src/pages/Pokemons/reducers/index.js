@@ -16,15 +16,16 @@ const pokemonsSlice = createSlice({
       builder
          .addCase(getPokemonsThunk.pending, (state) => {
             state.isLoading = true;
+            state.errors = null;
          })
          .addCase(getPokemonsThunk.fulfilled, (state, { payload }) => {
-            state.isLoading = false;
             state.data = payload;
+            state.isLoading = false;
             state.errors = null;
          })
          .addCase(getPokemonsThunk.rejected, (state, { payload }) => {
-            state.isLoading = false;
             state.data = [];
+            state.isLoading = false;
             state.errors = payload;
          })
    },
