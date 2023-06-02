@@ -1,9 +1,9 @@
 import { useCart } from "hooks";
-import { CartLayout } from "../components/CartLayout";
 import { useEffect } from "react";
 
-export const CartContainer = () => {
+import { CartLayout } from "../components/CartLayout";
 
+export const CartContainer = () => {
    const {
       cartItems,
       cartQuantity,
@@ -16,7 +16,8 @@ export const CartContainer = () => {
       getCartData,
       changeItemQuantity,
       deleteItem,
-      clearCart
+      clearCart,
+      makeOrder
    } = useCart();
 
    useEffect(() => {
@@ -36,7 +37,8 @@ export const CartContainer = () => {
             errors={errors}
             changeItemQuantity={changeItemQuantity}
             deleteItem={deleteItem}
-            clearCart={clearCart} />
+            clearCart={clearCart}
+            makeOrder={makeOrder} />
       </>
    );
 };

@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 
+import { changedItemIdSelector, cartErrorsSelector, cartItemsSelector, cartQuantitySelector, isCartLoadingSelector, totalAmountSelector, totalPriceSelector, cartEmptySelector } from "pages/Cart/selectors";
+import { customerIdSelector } from "pages/SignIn/selectors";
 import { addItemThunk } from "pages/Cart/api/thunks/addItem";
 import { changeItemThunk } from "pages/Cart/api/thunks/changeItem";
 import { clearCartThunk } from "pages/Cart/api/thunks/clearCart";
 import { deleteItemThunk } from "pages/Cart/api/thunks/deleteItem";
 import { getItemsThunk } from "pages/Cart/api/thunks/getItems";
-import { changedItemIdSelector, cartErrorsSelector, cartItemsSelector, cartQuantitySelector, isCartLoadingSelector, totalAmountSelector, totalPriceSelector, cartEmptySelector } from "pages/Cart/selectors";
+import { orderThunk } from "pages/Cart/api/thunks/order";
 
 export const useCart = () => {
    const dispatch = useDispatch();
@@ -17,6 +19,7 @@ export const useCart = () => {
    const totalAmount = useSelector(totalAmountSelector);
    const changedItemId = useSelector(changedItemIdSelector);
    const isCartEmpty = useSelector(cartEmptySelector);
+   const customerId = useSelector(customerIdSelector);
    const isLoading = useSelector(isCartLoadingSelector);
    const errors = useSelector(cartErrorsSelector);
 
@@ -33,13 +36,16 @@ export const useCart = () => {
    }, [dispatch]);
 
    const deleteItem = useCallback((id) => {
-      console.log(id);
       dispatch(deleteItemThunk(id));
    }, [dispatch]);
 
    const clearCart = useCallback((items) => {
       const promises = items.map(({ id }) => dispatch(deleteItemThunk(id)));
       dispatch(clearCartThunk(promises));
+   }, [dispatch]);
+
+   const makeOrder = useCallback(() => {
+      dispatch(orderThunk({ customerId, totalPrice, itemsList: cartItems }));
    }, [dispatch]);
 
    return {
@@ -56,5 +62,6 @@ export const useCart = () => {
       changeItemQuantity,
       deleteItem,
       clearCart,
+      makeOrder,
    };
 };

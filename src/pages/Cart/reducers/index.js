@@ -3,6 +3,7 @@ import { addItemThunk } from "../api/thunks/addItem";
 import { changeItemThunk } from "../api/thunks/changeItem";
 import { deleteItemThunk } from "../api/thunks/deleteItem";
 import { clearCartThunk } from "../api/thunks/clearCart";
+import { orderThunk } from "../api/thunks/order";
 
 const { createSlice } = require("@reduxjs/toolkit");
 
@@ -81,12 +82,11 @@ const cartSlice = createSlice({
          .addCase(deleteItemThunk.fulfilled, (state, { payload }) => {
             const { cartState, removedItemId } = payload;
 
-            state.totalPrice = cartState.totalPrice;
-            state.quantity = cartState.quantity;
-
             const foundItemId = state.itemsList.findIndex(({ id }) => id === removedItemId);
             state.itemsList.splice(foundItemId, 1);
 
+            state.totalPrice = cartState.totalPrice;
+            state.quantity = cartState.quantity;
             state.isLoading = false;
             state.errors = null;
          })
@@ -104,6 +104,22 @@ const cartSlice = createSlice({
             state.errors = null;
          })
          .addCase(clearCartThunk.rejected, (state, { payload }) => {
+            state.isLoading = false;
+            state.errors = payload;
+         })
+
+         .addCase(orderThunk.pending, (state) => {
+            state.isLoading = true;
+            state.errors = null;
+         })
+         .addCase(orderThunk.fulfilled, (state) => {
+            state.itemsList = [];
+            state.totalPrice = 0;
+            state.quantity = 0;
+            state.isLoading = false;
+            state.errors = null;
+         })
+         .addCase(orderThunk.rejected, (state, { payload }) => {
             state.isLoading = false;
             state.errors = payload;
          })

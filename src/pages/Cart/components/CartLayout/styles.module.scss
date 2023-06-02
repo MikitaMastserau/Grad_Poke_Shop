@@ -1,5 +1,20 @@
+.container {
+   width: 1000px;
+   padding: 0 15px;
+   margin: 0 auto;
+}
+
+.empty {
+   font-size: 22px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 50px 0;
+}
+
 .wrapper {
    display: flex;
+   justify-content: space-around;
 
    .itemsList {
       display: flex;
@@ -30,6 +45,50 @@
                color: darkgoldenrod;
             }
          }
+
+         .del {
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            background-color: rgb(169, 52, 87);
+            border-radius: 10px;
+            padding: 5px 25px;
+            transition: all 0.2s ease;
+
+            &:hover {
+               background-color: rgb(253, 77, 130);
+            }
+
+            &:active {
+               background-color: rgb(103, 32, 53);
+            }
+         }
       }
    }
+
+   .prices {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px 0;
+
+      p {
+         font-size: 22px;
+      }
+   }
+}
+
+.loading {
+   height: 420px;
+   display: flex;
+   justify-content: center;
+}
+
+.errors {
+   display: flex;
+   justify-content: center;
+   font-size: 18px;
+   color: red;
+   padding: 20px;
 }

@@ -2,10 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import CartService from "../index";
 
-export const deleteItemThunk = createAsyncThunk("cart/deleteItem",
-   async (payload, { rejectWithValue }) => {
+export const getOrderThunk = createAsyncThunk("profile/orders",
+   async (_, { rejectWithValue }) => {
       try {
-         const { data } = await CartService.deleteItem(payload);
+         const { data } = await CartService.getOrders();
 
          return data;
       } catch (error) {

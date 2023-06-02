@@ -8,6 +8,7 @@ import { PokemonsContainer } from "pages/Pokemons/containers/PokemonsContainer";
 import { PokemonInfoContainer } from "pages/PokemonInfo/containers/PokemonInfoContainer";
 import { HomeContainer } from "pages/Home/containers/HomeContainer";
 import { CartContainer } from "pages/Cart/containers/CartContainer";
+import { ProfileContainer } from "pages/Profile/containers/ProfileContainer";
 
 import { ROUTE_NAMES } from "./routeNames";
 
@@ -31,6 +32,11 @@ export const Router = () => {
          <Route path={ROUTE_NAMES.CART} element={
             <PrivateRout>
                <CartContainer />
+            </PrivateRout>
+         } />
+         <Route path={ROUTE_NAMES.PROFILE} element={
+            <PrivateRout>
+               <ProfileContainer />
             </PrivateRout>
          } />
 

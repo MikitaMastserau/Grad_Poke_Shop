@@ -5,6 +5,7 @@ import { isAuthenticatedSelector } from "pages/SignIn/selectors";
 import { AlertDialog } from "components/Dialog";
 import { CartBadge } from "components/CartBadge";
 import { useCart } from "hooks";
+import { ProfileButton } from "components/ProfileButton";
 
 import { ROUTE_NAMES } from "routes/routeNames";
 
@@ -16,23 +17,27 @@ export const Header = () => {
    const { cartQuantity } = useCart();
 
    return (
-      <div className={styles.wrapper}>
-         {isAuthenticated && <AlertDialog />}
-
+      <div>
          {!isAuthenticated ? (
-            <>
+            <div className={styles.wrapper}>
                <Link className={styles.navLink} to={ROUTE_NAMES.HOME}>Home Page</Link>
-               <Link className={styles.navLink} to={ROUTE_NAMES.SIGN_UP}>Sign Up</Link>
-               <Link className={styles.navLink} to={ROUTE_NAMES.SIGN_IN}>Sign In</Link>
-            </>
+               <div className={styles.sign}>
+                  <Link className={styles.navLink} to={ROUTE_NAMES.SIGN_UP}>Sign Up</Link>
+                  <Link className={styles.navLink} to={ROUTE_NAMES.SIGN_IN}>Sign In</Link>
+               </div>
+            </div>
          ) : (
-            <>
+            <div className={styles.wrapper}>
                <Link className={styles.navLink} to={ROUTE_NAMES.HOME}>Home Page</Link>
                <Link className={styles.navLink} to={ROUTE_NAMES.POKEMONS}>Pokemons</Link>
 
-               <CartBadge cartQuantity={cartQuantity} />
-            </>
+               <div className={styles.icons}>
+                  <ProfileButton />
+                  <CartBadge cartQuantity={cartQuantity} />
+                  {isAuthenticated && <AlertDialog />}
+               </div>
+            </div>
          )}
-      </div>
+      </div >
    );
 };

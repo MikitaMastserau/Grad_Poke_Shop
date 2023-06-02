@@ -1,4 +1,4 @@
-const { mainApiConfig } = require("config/mainApi");
+import { mainApiConfig } from "config/mainApi";
 
 class CartService {
    static instance = new CartService();
@@ -19,6 +19,14 @@ class CartService {
 
    deleteItem(id) {
       return mainApiConfig.delete(`${this.#baseUrl}/item/${id}`);
+   };
+
+   order({ customerId, totalPrice, itemsList }) {
+      return mainApiConfig.post("/order", { customerId, totalPrice, itemsList });
+   };
+
+   getOrders() {
+      return mainApiConfig.get("/order");
    };
 };
 

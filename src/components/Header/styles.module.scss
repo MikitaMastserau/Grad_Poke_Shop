@@ -1,10 +1,17 @@
 .wrapper {
    display: flex;
-   flex-wrap: wrap;
-   gap: 5px;
+   justify-content: space-between;
    background-color: rgb(0, 99, 129);
    border: 5px solid rgb(0, 99, 129);
    border-radius: 10px;
+}
+
+.sign {
+   display: flex;
+   justify-content: space-between;
+   background-color: rgb(0, 99, 129);
+   border-radius: 10px;
+   gap: 10px;
 }
 
 .navLink {
@@ -24,4 +31,8 @@
    &:active {
       background-color: rgb(0, 123, 160);
    }
+}
+
+.icons {
+   display: flex;
 }
