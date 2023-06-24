@@ -1,0 +1,23 @@
+.wrapper {
+   padding: 50px 15px 787px;
+   background: url(../../../../static/images/WelcomeDesktop.png) rgba(0, 0, 0, 0.5) no-repeat center bottom / cover;
+   background-blend-mode: multiply;
+}
+
+.sign {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 40px;
+
+   >img {
+      height: 100px;
+      width: 100px;
+   }
+
+   >p {
+      color: #006381;
+      font-size: 22px;
+      font-weight: 500;
+   }
+}

@@ -1,15 +1,12 @@
 .wrapper {
    display: flex;
-   justify-content: space-between;
-   background-color: rgb(0, 99, 129);
-   border: 5px solid rgb(0, 99, 129);
-   border-radius: 10px;
+   justify-content: space-around;
+   background-color: rgb(0, 0, 0);
 }
 
 .sign {
    display: flex;
    justify-content: space-between;
-   background-color: rgb(0, 99, 129);
    border-radius: 10px;
    gap: 10px;
 }
@@ -19,17 +16,15 @@
    font-weight: 700;
    font-size: 20px;
    color: #fff;
-   background-color: rgb(52, 141, 169);
-   border-radius: 10px;
-   padding: 10px;
+   padding: 30px;
    transition: all 0.2s ease;
 
    &:hover {
-      background-color: rgb(91, 196, 227);
+      background-color: rgb(33, 33, 33);
    }
 
    &:active {
-      background-color: rgb(0, 123, 160);
+      background-color: rgb(255, 111, 0);
    }
 }
 
