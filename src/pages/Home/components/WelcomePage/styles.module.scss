@@ -1,23 +1,44 @@
 .wrapper {
-   padding: 50px 15px 787px;
-   background: url(../../../../static/images/WelcomeDesktop.png) rgba(0, 0, 0, 0.5) no-repeat center bottom / cover;
+   padding: 220px 15px 356px;
+   background: url(../../../../static/images/WelcomeDesktop.png) rgba(0, 0, 0, 0.65) no-repeat center bottom / cover;
    background-blend-mode: multiply;
+}
+
+.line {
+   width: 300px;
+   height: 1px;
+   background-color: #fff;
+   margin: 20px auto 0;
 }
 
 .sign {
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 40px;
+   gap: 20px;
+   padding-top: 20px;
 
    >img {
-      height: 100px;
-      width: 100px;
+      height: 30px;
+      width: 30px;
    }
 
    >p {
-      color: #006381;
+      color: #fff;
       font-size: 22px;
-      font-weight: 500;
+
+      >a {
+         font-weight: 500;
+         color: #fff;
+         text-decoration: underline;
+
+         &:hover {
+            color: darkorange;
+         }
+
+         &:active {
+            color: orangered;
+         }
+      }
    }
 }
