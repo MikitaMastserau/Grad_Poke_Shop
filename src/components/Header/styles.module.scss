@@ -27,6 +27,30 @@
    }
 }
 
+.logoLink {
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   transition: all 0.2s ease;
+
+   &:hover {
+      background-color: #c62828;
+   }
+
+   &:active {
+      background-color: rgb(33, 33, 33);
+   }
+
+   >img:first-of-type {
+      width: 40px;
+      height: 40px;
+   }
+
+   >img:last-of-type {
+      width: 150px;
+   }
+}
+
 .icons {
    display: flex;
 }
