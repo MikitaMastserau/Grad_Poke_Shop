@@ -1,0 +1,89 @@
+.container {
+   width: 1170px;
+   padding: 0 15px 30px;
+   margin: 0 auto;
+}
+
+.wrapper {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   border: 5px solid rgb(52, 141, 169);
+   border-radius: 10px;
+   padding: 20px;
+   margin: 10px;
+}
+
+.name {
+   font-weight: 700;
+   font-size: 20px;
+   text-transform: uppercase;
+   padding: 5px 0;
+}
+
+.image {
+   width: 200px;
+   height: 200px;
+   object-fit: cover;
+}
+
+.data {
+   text-align: start;
+}
+
+.email {
+   font-weight: 400;
+   font-size: 18px;
+   padding: 5px 0;
+}
+
+.phone {
+   font-weight: 300;
+   font-size: 18px;
+}
+
+.gender {
+   font-weight: 300;
+   font-size: 18px;
+}
+
+.orders {
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+
+   .order {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 10px;
+      transition: 0.2s;
+
+      &:hover {
+         box-shadow: 5px 9px 16px rgba(255, 102, 51, 0.2);
+      }
+
+      .desc {
+         p:first-of-type {
+            font-size: 20px;
+            line-height: 35px;
+         }
+      }
+
+      .items {
+         display: flex;
+         flex-wrap: wrap;
+         text-align: center;
+         gap: 15px;
+      }
+   }
+}

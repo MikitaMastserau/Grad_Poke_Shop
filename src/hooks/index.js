@@ -3,3 +3,4 @@ export { useFetching } from "./useFetching";
 export { useForm } from "./useForm";
 export { usePagination } from "./usePagination";
 export { useScrollTop } from "./useScrollTop";
+export { useCart } from "./useCart";

@@ -1,0 +1,16 @@
+.stats {
+   display: flex;
+   gap: 30px;
+   align-items: center;
+
+   >img {
+      height: 50px;
+      width: 50px;
+   }
+
+   >p {
+      font-family: 'Cookie', cursive;
+      font-weight: 500;
+      font-size: 32px;
+   }
+}
