@@ -19,27 +19,30 @@ export const Header = () => {
    const { cartQuantity } = useCart();
 
    return (
-      <div>
+      <>
          {!isAuthenticated ? (
-            <div className={styles.wrapper}>
-               <Link className={styles.logoLink} to={ROUTE_NAMES.HOME}><img src={logoIcon} alt="" /><img src={logo} alt="" /></Link>
-               <div className={styles.sign}>
-                  <Link className={styles.navLink} to={ROUTE_NAMES.SIGN_UP}>Sign Up</Link>
-                  <Link className={styles.navLink} to={ROUTE_NAMES.SIGN_IN}>Sign In</Link>
+            <header className={styles.header}>
+               <div className={styles.container}>
+                  <Link className={styles.header__logo} to={ROUTE_NAMES.HOME}><img src={logoIcon} alt="" /><img src={logo} alt="" /></Link>
+                  <div className={styles.header__nav}>
+                     <Link className={styles.header__link} to={ROUTE_NAMES.SIGN_UP}>Sign Up</Link>
+                     <Link className={styles.header__link} to={ROUTE_NAMES.SIGN_IN}>Sign In</Link>
+                  </div>
                </div>
-            </div>
+            </header>
          ) : (
-            <div className={styles.wrapper}>
-               <Link className={styles.logoLink} to={ROUTE_NAMES.HOME}>Home Page</Link>
-               <Link className={styles.navLink} to={ROUTE_NAMES.POKEMONS}>Pokemons</Link>
-
-               <div className={styles.icons}>
-                  <ProfileButton />
-                  <CartBadge cartQuantity={cartQuantity} />
-                  {isAuthenticated && <AlertDialog />}
+            <header className={styles.header}>
+               <div className={styles.container}>
+                  <Link className={styles.header__logo} to={ROUTE_NAMES.HOME}><img src={logoIcon} alt="" /><img src={logo} alt="" /></Link>
+                  <Link className={styles.header__link} to={ROUTE_NAMES.POKEMONS}>Pokemons</Link>
+                  <div className={styles.header__ico}>
+                     <ProfileButton />
+                     <CartBadge cartQuantity={cartQuantity} />
+                     {isAuthenticated && <AlertDialog />}
+                  </div>
                </div>
-            </div>
+            </header>
          )}
-      </div >
+      </ >
    );
 };
