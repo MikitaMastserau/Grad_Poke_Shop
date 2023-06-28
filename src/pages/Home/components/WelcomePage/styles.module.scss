@@ -1,5 +1,5 @@
 .wrapper {
-   padding: 220px 15px 356px;
+   padding: 240px 15px 406px;
    background: url(../../../../static/images/WelcomeDesktop.png) rgba(0, 0, 0, 0.65) no-repeat center bottom / cover;
    background-blend-mode: multiply;
 }
@@ -37,7 +37,7 @@
          }
 
          &:active {
-            color: orangered;
+            color: #ef5350;
          }
       }
    }

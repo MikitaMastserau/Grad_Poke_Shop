@@ -1,70 +1,15 @@
+.wrapper {
+   padding: 30px 15px 102.7px;
+   background: url(../../../../static/images/WelcomeDesktop.png) rgba(0, 0, 0, 0.65) no-repeat center bottom / cover;
+   background-blend-mode: multiply;
+}
+
 .container {
    padding: 0 15px 15px;
 }
 
-.wrapper {
-   width: 400px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   background-color: lightslategrey;
-   border-radius: 10px;
-   color: #fff;
-   gap: 5px;
-   padding: 20px;
-   margin: 0 auto;
-
-   .field {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-   }
-
-   select,
-   input {
-      border: 2px solid #fff;
-      border-radius: 5px;
-      padding: 5px 10px;
-
-      &:focus {
-         border: 2px solid darkorange;
-      }
-   }
-
-   select {
-      width: 179.2px;
-      text-align: center;
-   }
-
-   button {
-      width: 130px;
-      font-size: 20px;
-      background-color: darkorange;
-      color: #fff;
-      border: 2px solid darkorange;
-      border-radius: 5px;
-      padding: 5px 0;
-      margin-top: 5px;
-
-      &:hover {
-         background-color: #fff;
-         color: darkorange;
-      }
-
-      &:active {
-         color: lightslategrey;
-         border: 2px solid #fff;
-      }
-   }
-
-   .errors {
-      text-align: center;
-      color: firebrick;
-   }
-
-   .noErrors {
-      height: 14px;
-   }
+.loading {
+   padding: 201.7px 0 301.7px;
 }
 
 .success {
@@ -77,7 +22,7 @@
    }
 }
 
-.requestError {
+.errors {
    font-size: 20px;
    text-align: center;
    color: firebrick;
@@ -86,4 +31,8 @@
    &::first-letter {
       text-transform: uppercase;
    }
+}
+
+.noErrors {
+   padding: 20px 0;
 }

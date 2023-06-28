@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { useCart } from "hooks";
 import { Header } from "components/Header";
-import { useSelector } from "react-redux";
+import { Footer } from "components/Footer";
 import { isAuthenticatedSelector } from "pages/SignIn/selectors";
 
 export const MainLayout = ({ children }) => {
@@ -19,6 +20,7 @@ export const MainLayout = ({ children }) => {
       <div>
          <Header />
          {children}
+         <Footer />
       </div>
    );
 };

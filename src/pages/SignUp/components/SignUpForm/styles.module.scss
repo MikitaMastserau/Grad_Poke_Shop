@@ -1,0 +1,64 @@
+.form {
+   width: 400px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: lightslategrey;
+   border-radius: 10px;
+   color: #fff;
+   gap: 5px;
+   padding: 20px;
+   margin: 0 auto;
+
+   &__field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+   }
+
+   select,
+   input {
+      border: 2px solid #fff;
+      border-radius: 5px;
+      padding: 5px 10px;
+
+      &:focus {
+         border: 2px solid darkorange;
+      }
+   }
+
+   select {
+      width: 195.1px;
+      text-align: center;
+   }
+
+   button {
+      width: 130px;
+      font-size: 20px;
+      background-color: darkorange;
+      color: #fff;
+      border: 2px solid darkorange;
+      border-radius: 5px;
+      padding: 5px 0;
+      margin-top: 5px;
+
+      &:hover {
+         background-color: #fff;
+         color: darkorange;
+      }
+
+      &:active {
+         color: lightslategrey;
+         border: 2px solid #fff;
+      }
+   }
+
+   &__errors {
+      text-align: center;
+      color: firebrick;
+   }
+
+   &__noErrors {
+      height: 14px;
+   }
+}

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import Dialog from "@mui/material/Dialog";
 import { IconButton } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 
 import { logout } from "utils";
+
 import logoutIcon from "static/icons/logoutIcon.png";
 
 import styles from "./styles.module.scss";
@@ -21,7 +22,7 @@ export const AlertDialog = () => {
    };
 
    return (
-      <div className={styles.wrapper}>
+      <>
          <IconButton sx={{ height: 45, width: 45, alignSelf: "center" }} aria-label="logout" onClick={handleClickOpen} >
             <img className={styles.logoutIcon} src={logoutIcon} alt="" />
          </IconButton>
@@ -38,6 +39,6 @@ export const AlertDialog = () => {
                <button className={styles.logoutButton} onClick={logout} autoFocus>Log Out</button>
             </DialogActions>
          </Dialog>
-      </div >
+      </ >
    );
 };
