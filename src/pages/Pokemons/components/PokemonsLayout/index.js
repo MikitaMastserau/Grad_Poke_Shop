@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 
 export const PokemonsLayout = ({ pokemonsData, isLoading, errors, page, handlePageChange, addItemToCart, handleLearnMore }) => {
    return (
-      <div className={styles.container}>
+      <div className={styles.wrapper}>
          <Title title="Pokemons" />
 
          {errors && <p className={styles.errors}>{errors}</p>}
@@ -15,7 +15,7 @@ export const PokemonsLayout = ({ pokemonsData, isLoading, errors, page, handlePa
          {isLoading ? <div className={styles.loading}><LoadingSpinner /></div> :
 
             <>
-               <div className={styles.wrapper}>
+               <div className={styles.container}>
                   {pokemonsData?.map(({ id, name, image, price }) => {
                      return (
                         <PokemonCard
