@@ -7,16 +7,16 @@ import styles from "./styles.module.scss";
 
 export const PokemonCard = ({ id, image, name, price, handleAddToCart, handleLearnMore }) => {
    return (
-      <div className={styles.pokemonCard}>
-         <img src={image} alt="" />
-         <div className={styles.pokemonText}>
+      <div className={styles.card}>
+         <img className={styles.card__image} src={image} alt="" />
+         <div className={styles.card__text}>
             <p>{startCase(name)}</p>
-            <div className={styles.price}>
+            <div className={styles.card__text__price}>
                <img src={pokecoinIcon} alt="" />
                <p>{price}</p>
             </div>
          </div>
-         <div className={styles.buttons}>
+         <div className={styles.card__buttons}>
             <Button
                size="small"
                variant="contained"

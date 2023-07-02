@@ -23,7 +23,7 @@ export const PokemonsContainer = () => {
    const errors = useSelector(pokemonsErrorsSelector);
 
    useEffect(() => {
-      dispatch(getPokemonsThunk({ page, limit: 25 }));
+      dispatch(getPokemonsThunk({ page, limit: 24 }));
    }, [page]);
 
    const handleLearnMore = (name) => {

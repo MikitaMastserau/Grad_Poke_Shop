@@ -1,18 +1,19 @@
-.container {
+.wrapper {
+   background-color: #ffe9b7;
    padding: 15px;
 }
 
-.wrapper {
-   display: grid;
-   grid-template-columns: repeat(5, 1fr);
-   grid-template-rows: repeat(5, 1fr);
-   gap: 30px 20px;
+.container {
+   max-width: 1100px;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 30px;
+   margin: 0 auto;
 }
 
 .loading {
-   height: 420px;
-   display: flex;
-   justify-content: center;
+   padding: 200px 0 300px;
 }
 
 .pagination {
