@@ -57,9 +57,9 @@ export const HomePage = () => {
                   </div>
                   <div className={styles.total__text}>
                      <p>
-                        There are 18 different types of pokémons in total: fire, water, grass, electric, eormal
+                        There are <strong>18</strong> different types of pokémons in total: fire, water, grass, electric, normal
                         (no special affiliation to the elements), flying, ice, ghost, dark, steel, rock, ground,
-                        psychic, insect, dragon, poison, magical and combat (martial arts masters).
+                        psychic, bug, dragon, poison, fairy and fighting (martial arts masters).
                      </p>
                      <p>
                         In battles with other types, each pokémon has both advantages and disadvantages.

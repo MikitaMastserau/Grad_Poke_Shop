@@ -5,44 +5,29 @@ import { LoadingSpinner } from "components/LoadingSpinner";
 import { SubTitle } from "components/SubTitle";
 import { StatsList } from "../StatsList";
 import { AbilitiesList } from "../AbilitiesList";
-
-import { STAT_ICON_LIST, ABILITIES_LIST_MAIN_ICON, ABILITIES_ICON_LIST } from "pages/PokemonInfo/config/statsConfig";
+import { TypesList } from "../TypesList";
 
 import styles from "./styles.module.scss";
 
-export const PokemonInfoLayout = ({ name, stats, abilities, sprites, isLoading, errors }) => {
+export const PokemonInfoLayout = ({ name, stats, abilities, sprites, types, price, isLoading, errors }) => {
    return (
-      <>
+      <div className={styles.wrapper}>
          <Title title="Pokemon Info" />
 
          {isLoading ? <div className={styles.loading}><LoadingSpinner /></div> :
-            <>
-               <SubTitle title={startCase(name)} color={"orangered"} />
-
-               <div className={styles.pokemonCard}>
-                  <img src={sprites?.other?.["official-artwork"]?.front_default} alt="" />
-
-                  <div className={styles.statList}>
-                     {Object.entries(stats).map(([statName, statValue]) => {
-                        return (
-                           <StatsList key={statName} icon={STAT_ICON_LIST[statName]} statValue={statValue} />
-                        );
-                     })}
-                     <div className={styles.abilitiesWrapper}>
-                        <img src={ABILITIES_LIST_MAIN_ICON} alt="" />
-                        <div className={styles.abilitiesList}>
-                           {abilities.map((abilityName, index) => {
-                              return (
-                                 <AbilitiesList key={abilityName} abilityName={abilityName} icon={ABILITIES_ICON_LIST[index]} />
-                              );
-                           })}
-                        </div>
-                     </div>
-                  </div>
+            <div className={styles.container}>
+               <div className={styles.card}>
+                  <SubTitle title={startCase(name)} color={"orangered"} />
+                  <img className={styles.card__image} src={sprites} alt="" />
                </div>
-            </>
+
+               <StatsList stats={stats} />
+               <AbilitiesList abilities={abilities} />
+               <TypesList types={types} />
+            </div>
          }
+
          {errors && <p className={styles.errors}>{errors}</p>}
-      </>
+      </div>
    );
 };

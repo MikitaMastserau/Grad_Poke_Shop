@@ -13,7 +13,6 @@ export const signInThunk = createAsyncThunk("auth/signIn",
          const { accessToken, ...profileData } = data;
 
          LocalStorageService.saveToken(accessToken);
-         console.log(accessToken);
 
          return profileData;
       } catch (error) {

@@ -17,9 +17,6 @@ export const ProfileContainer = () => {
       dispatch(getOrderThunk());
    }, [dispatch]);
 
-   console.log(profileData);
-   console.log(profileOrders);
-
    return (
       <>
          <ProfileLayout

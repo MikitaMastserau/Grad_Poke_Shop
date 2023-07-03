@@ -24,7 +24,7 @@ export const PokemonsContainer = () => {
 
    useEffect(() => {
       dispatch(getPokemonsThunk({ page, limit: 24 }));
-   }, [page]);
+   }, [page, dispatch]);
 
    const handleLearnMore = (name) => {
       return navigate(`${ROUTE_NAMES.POKEMONS}/${name}`);
