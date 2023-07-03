@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-import { isPokemonInfoLoadingSelector, pokemonAbilitiesSelector, pokemonInfoErrorsSelector, pokemonNameSelector, pokemonSpritesSelector, pokemonStatsSelector } from "../selectors";
-import { getPokemonInfoThunk } from "../api";
+import { isPokemonInfoLoadingSelector, pokemonAbilitiesSelector, pokemonInfoErrorsSelector, pokemonNameSelector, pokemonPriceSelector, pokemonSpritesSelector, pokemonStatsSelector, pokemonTypesSelector } from "../selectors";
+import { getPokemonInfoThunk, getPokemonInfoThunkFromApi } from "../api";
 import { PokemonInfoLayout } from "../components/PokemonInfoLayout";
 
 export const PokemonInfoContainer = () => {
@@ -14,12 +14,18 @@ export const PokemonInfoContainer = () => {
    const stats = useSelector(pokemonStatsSelector);
    const abilities = useSelector(pokemonAbilitiesSelector);
    const sprites = useSelector(pokemonSpritesSelector);
+   const types = useSelector(pokemonTypesSelector);
+   const price = useSelector(pokemonPriceSelector);
    const isLoading = useSelector(isPokemonInfoLoadingSelector);
    const errors = useSelector(pokemonInfoErrorsSelector);
 
    useEffect(() => {
       dispatch(getPokemonInfoThunk(pokemonName));
-   }, [pokemonName]);
+   }, [pokemonName, dispatch]);
+
+   useEffect(() => {
+      dispatch(getPokemonInfoThunkFromApi(1));
+   }, [pokemonName, dispatch]);
 
    return (
       <>
@@ -28,6 +34,8 @@ export const PokemonInfoContainer = () => {
             stats={stats}
             abilities={abilities}
             sprites={sprites}
+            types={types}
+            price={price}
             isLoading={isLoading}
             errors={errors} />
       </>

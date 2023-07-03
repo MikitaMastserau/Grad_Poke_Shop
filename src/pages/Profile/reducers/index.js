@@ -20,7 +20,6 @@ const profileSlice = createSlice({
          })
          .addCase(getOrderThunk.fulfilled, (state, { payload }) => {
             state.orders = payload;
-            console.log(payload);
             state.isLoading = false;
             state.errors = null;
          })

@@ -1,14 +1,30 @@
-.abilities {
+.abils {
    display: flex;
    align-items: center;
-   gap: 5px;
 
-   >img {
-      height: 30px;
-      width: 30px;
+   &__image {
+      height: 50px;
+      width: 50px;
    }
 
-   >p {
-      font-size: 16px;
+   &__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+
+      &__item {
+         display: flex;
+         align-items: center;
+         gap: 5px;
+
+         >img {
+            height: 30px;
+            width: 30px;
+         }
+
+         >p {
+            font-size: 16px;
+         }
+      }
    }
 }

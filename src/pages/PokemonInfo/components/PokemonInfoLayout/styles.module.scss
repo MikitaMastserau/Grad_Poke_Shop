@@ -1,41 +1,25 @@
-.pokemonCard {
+.wrapper {
+   background-color: #ffe9b7;
+   padding: 15px;
+}
+
+.container {
+   max-width: 1100px;
    display: flex;
    justify-content: center;
    column-gap: 50px;
+   margin: 0 auto;
+}
 
-   >img {
+.card {
+   &__image {
       height: 500px;
       width: 500px;
    }
 }
 
-.statList {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   row-gap: 10px;
-}
-
-.abilitiesWrapper {
-   display: flex;
-   align-items: center;
-
-   >img {
-      height: 50px;
-      width: 50px;
-   }
-}
-
-.abilitiesList {
-   display: flex;
-   flex-direction: column;
-   row-gap: 5px;
-}
-
 .loading {
-   height: 420px;
-   display: flex;
-   justify-content: center;
+   padding: 200px 0 300px;
 }
 
 .errors {
@@ -43,5 +27,5 @@
    justify-content: center;
    font-size: 18px;
    color: red;
-   padding: 20px;
+   padding: 241px 0 341px;
 }

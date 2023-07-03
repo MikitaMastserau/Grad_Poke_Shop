@@ -1,16 +1,23 @@
 .stats {
    display: flex;
-   gap: 30px;
-   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   gap: 10px;
 
-   >img {
-      height: 50px;
-      width: 50px;
-   }
+   &__item {
+      display: flex;
+      gap: 30px;
+      align-items: center;
 
-   >p {
-      font-family: 'Cookie', cursive;
-      font-weight: 500;
-      font-size: 32px;
+      img {
+         height: 50px;
+         width: 50px;
+      }
+
+      p {
+         font-family: 'Cookie', cursive;
+         font-weight: 500;
+         font-size: 32px;
+      }
    }
 }
