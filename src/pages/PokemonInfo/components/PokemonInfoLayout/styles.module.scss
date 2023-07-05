@@ -1,17 +1,25 @@
 .wrapper {
    background-color: #ffe9b7;
    padding: 15px;
-}
 
-.container {
-   max-width: 1100px;
-   display: flex;
-   justify-content: center;
-   column-gap: 50px;
-   margin: 0 auto;
+   .container {
+      max-width: 1000px;
+      margin: 0 auto;
+   }
+
+   h3 {
+      font-size: 14px;
+      text-transform: capitalize;
+   }
 }
 
 .card {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 50px;
+   padding: 5px 0 35px;
+
    &__image {
       height: 500px;
       width: 500px;
@@ -19,7 +27,7 @@
 }
 
 .loading {
-   padding: 200px 0 300px;
+   padding: 210px 0 310px;
 }
 
 .errors {

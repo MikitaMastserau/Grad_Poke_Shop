@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 import cartIcon from "static/icons/cartIcon.png";
 import { ROUTE_NAMES } from "routes/routeNames";
@@ -16,11 +16,11 @@ export const CartBadge = ({ cartQuantity }) => {
    };
 
    const StyledBadge = styled(Badge)(({ theme }) => ({
-      '& .MuiBadge-badge': {
+      "& .MuiBadge-badge": {
          right: 5,
          top: 5,
          border: `2px solid ${theme.palette.background.paper}`,
-         padding: '0 4px',
+         padding: "0 4px",
       },
    }));
 

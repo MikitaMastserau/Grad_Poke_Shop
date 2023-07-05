@@ -1,5 +1,5 @@
 import { startCase } from "lodash";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 import pokecoinIcon from "static/icons/pokecoinIcon.png";
 
