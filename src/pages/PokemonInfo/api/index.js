@@ -5,29 +5,27 @@ import omit from "lodash/omit";
 import { pokemonApiConfig } from "config/pokemonApi";
 import { mainApiConfig } from "config/mainApi";
 
-const getPokemonInfoRequest = (pokemonName) => pokemonApiConfig.get(`/pokemon/${pokemonName}`);
-const getPokemonInfoRequestFromApi = (id) => mainApiConfig.get(`/products/${id}`);
+const getPokemonInfoRequestByName = (pokemonName) => pokemonApiConfig.get(`/pokemon/${pokemonName}`);
+const getPokemonInfoRequestById = (pokemonId) => mainApiConfig.get(`/products/${pokemonId}`);
 
 export const getPokemonInfoThunk = createAsyncThunk("pokemonInfo/getPokemonInfo",
    async (pokemonName, { rejectWithValue }) => {
       try {
-         const response = await getPokemonInfoRequest(pokemonName);
+         const responseByName = await getPokemonInfoRequestByName(pokemonName);
 
-         return pick(response.data, ["sprites", "types"]);
+         const fieldsByName = pick(responseByName.data, ["id", "sprites", "types", "height", "weight"]);
+
+         const pokemonId = responseByName.data.id;
+
+         const responseById = await getPokemonInfoRequestById(pokemonId);
+
+         const fieldsById = omit(responseById.data, ["id", "image"]);
+
+         const response = Object.assign(fieldsByName, fieldsById);
+
+         return response;
       } catch (error) {
          return rejectWithValue(error.response.data.message);
       };
-   }
-);
-
-export const getPokemonInfoThunkFromApi = createAsyncThunk("pokemonInfo/getPokemonInfoFromApi",
-   async (body, { rejectWithValue }) => {
-      try {
-         const response = await getPokemonInfoRequestFromApi(body);
-
-         return omit(response.data, ["id", "image"]);
-      } catch (error) {
-         return rejectWithValue(error.response.data.message);
-      };
-   }
+   },
 );

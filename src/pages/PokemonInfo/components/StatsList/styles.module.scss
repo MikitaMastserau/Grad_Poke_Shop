@@ -1,23 +1,29 @@
-.stats {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   gap: 10px;
+.wrapper {
+   background-color: #ebd6a6;
+   box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.2);
+   border-radius: 10px;
 
-   &__item {
+   .stats {
       display: flex;
       gap: 30px;
-      align-items: center;
+      padding: 30px 35px 20px;
 
-      img {
-         height: 50px;
-         width: 50px;
-      }
+      &__item {
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+         align-items: center;
 
-      p {
-         font-family: 'Cookie', cursive;
-         font-weight: 500;
-         font-size: 32px;
+         img {
+            height: 50px;
+            width: 50px;
+         }
+
+         p {
+            color: rgb(59, 59, 59);
+            font-family: "Cookie", cursive;
+            font-size: 42px;
+         }
       }
    }
 }

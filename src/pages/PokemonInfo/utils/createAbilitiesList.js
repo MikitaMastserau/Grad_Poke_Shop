@@ -1,12 +1,12 @@
-import startCase from "lodash/startCase";
+import { startCase } from "lodash";
 
 export const createAbilitiesList = (abilities) => {
    if (Array.isArray(abilities)) {
-      return abilities.reduce((result, { ability }) => {
-         result.push(startCase(ability?.title));
+      return abilities.reduce((result, { title, description }) => {
+         result[startCase(title)] = description;
 
          return result;
-      }, []);
+      }, {});
    }
    return;
 };
