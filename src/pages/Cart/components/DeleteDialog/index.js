@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { IconButton } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 
-import { logout } from "utils";
-
-import logoutIcon from "static/icons/logoutIcon.png";
+import deleteIcon from "static/icons/deleteIcon.svg";
+import { CancelButton } from "components/CancelButton";
+import { ConfirmButton } from "components/ConfirmButton";
 
 import styles from "./styles.module.scss";
 
-export const AlertDialog = () => {
+export const DeleteDialog = ({ id, deleteItem }) => {
    const [open, setOpen] = useState(false);
 
    const handleClickOpen = () => {
@@ -23,20 +22,18 @@ export const AlertDialog = () => {
 
    return (
       <>
-         <IconButton sx={{ height: 45, width: 45, alignSelf: "center" }} aria-label="logout" onClick={handleClickOpen} >
-            <img className={styles.logoutIcon} src={logoutIcon} alt="" />
-         </IconButton>
+         <button className={styles.deleteButton} onClick={handleClickOpen}><img src={deleteIcon} alt="" /> Delete</button>
          <Dialog
             open={open}
             onClose={handleClose}
             aria-labelledby="alertTitle"
          >
             <DialogTitle id="alertTitle">
-               {"Are you sure you want to log out of your account?"}
+               {"Are you sure you want to delete this Pokémon?"}
             </DialogTitle>
             <DialogActions>
-               <button className={styles.cancelButton} onClick={handleClose}>Cancel</button>
-               <button className={styles.logoutButton} onClick={logout} autoFocus>Log Out</button>
+               <CancelButton handleClose={handleClose} />
+               <ConfirmButton handleConfirm={() => deleteItem(id)} text={"Delete"} />
             </DialogActions>
          </Dialog>
       </ >

@@ -12,7 +12,7 @@
    &__logo {
       display: flex;
       align-items: center;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       padding-left: 7px;
 
       &:hover {
@@ -20,7 +20,7 @@
       }
 
       &:active {
-         background-color: rgb(53, 53, 53);
+         background-color: #353535;
       }
 
       >img:first-of-type {
@@ -47,14 +47,14 @@
       font-size: 20px;
       color: #fff;
       padding: 25px;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
 
       &:hover {
          background-color: #c62828;
       }
 
       &:active {
-         background-color: rgb(53, 53, 53);
+         background-color: #353535;
       }
    }
 

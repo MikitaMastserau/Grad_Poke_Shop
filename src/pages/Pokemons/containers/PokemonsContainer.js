@@ -11,7 +11,7 @@ import { ROUTE_NAMES } from "routes/routeNames";
 
 export const PokemonsContainer = () => {
    const [page, handlePageChange] = usePagination(1);
-   const { addItemToCart } = useCart();
+   const { addItemToCart, cartItems } = useCart();
 
    useScrollTop(page);
 
@@ -39,6 +39,7 @@ export const PokemonsContainer = () => {
             page={page}
             handlePageChange={handlePageChange}
             addItemToCart={addItemToCart}
+            cartItems={cartItems}
             handleLearnMore={handleLearnMore} />
       </>
    );

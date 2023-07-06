@@ -16,7 +16,7 @@
       padding: 5px 10px;
 
       &:focus {
-         border: 2px solid darkorange;
+         border: 2px solid #ff8400;
       }
    }
 
@@ -36,16 +36,16 @@
    &__submit {
       width: 130px;
       font-size: 20px;
-      background-color: darkorange;
+      background-color: #ff8400;
       color: #fff;
-      border: 2px solid darkorange;
+      border: 2px solid #ff8400;
       border-radius: 5px;
       padding: 5px 0;
       margin-top: 5px;
 
       &:hover {
          background-color: #fff;
-         color: darkorange;
+         color: #ff8400;
       }
 
       &:active {

@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 
 const baseSelector = (state) => state.pokemonInfo;
 
+export const pokemonIdSelector = createSelector(baseSelector, (info) => info.id);
 export const pokemonNameSelector = createSelector(baseSelector, (info) => info.name);
 export const pokemonStatsSelector = createSelector(baseSelector, (info) => info.stats);
 export const pokemonAbilitiesSelector = createSelector(baseSelector, (info) => info.abilities);

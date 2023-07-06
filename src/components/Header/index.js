@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { isAuthenticatedSelector } from "pages/SignIn/selectors";
-import { AlertDialog } from "components/Dialog";
+import { LogoutDialog } from "components/LogoutDialog";
 import { CartBadge } from "components/CartBadge";
 import { useCart } from "hooks";
 import { ProfileButton } from "components/ProfileButton";
@@ -38,7 +38,7 @@ export const Header = () => {
                   <div className={styles.header__ico}>
                      <ProfileButton />
                      <CartBadge cartQuantity={cartQuantity} />
-                     {isAuthenticated && <AlertDialog />}
+                     {isAuthenticated && <LogoutDialog />}
                   </div>
                </div>
             </header>

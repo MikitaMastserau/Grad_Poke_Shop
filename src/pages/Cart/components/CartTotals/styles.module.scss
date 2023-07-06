@@ -1,0 +1,22 @@
+.totals {
+   min-width: 260px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+   border-radius: 10px;
+   gap: 20px;
+   padding: 20px;
+   margin: 10px 0 0 0;
+   position: sticky;
+   top: 30px;
+
+   &__item {
+      font-size: 22px;
+
+      img {
+         height: 22px;
+         width: 22px;
+      }
+   }
+}

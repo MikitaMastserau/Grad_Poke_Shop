@@ -5,7 +5,7 @@ import { PokemonCard } from "components/PokemonCard";
 
 import styles from "./styles.module.scss";
 
-export const PokemonsLayout = ({ pokemonsData, isLoading, errors, page, handlePageChange, addItemToCart, handleLearnMore }) => {
+export const PokemonsLayout = ({ pokemonsData, isLoading, errors, page, handlePageChange, addItemToCart, cartItems, handleLearnMore }) => {
    return (
       <div className={styles.wrapper}>
          <Title title="Pokemons" />
@@ -24,8 +24,9 @@ export const PokemonsLayout = ({ pokemonsData, isLoading, errors, page, handlePa
                            image={image}
                            name={name}
                            price={price}
-                           handleLearnMore={handleLearnMore}
-                           handleAddToCart={addItemToCart} />
+                           handleAddToCart={addItemToCart}
+                           cartItems={cartItems}
+                           handleLearnMore={handleLearnMore} />
                      );
                   })}
                </div>

@@ -5,7 +5,7 @@ import pokecoinIcon from "static/icons/pokecoinIcon.png";
 
 import styles from "./styles.module.scss";
 
-export const PokemonCard = ({ id, image, name, price, handleAddToCart, handleLearnMore }) => {
+export const PokemonCard = ({ id, image, name, price, handleAddToCart, cartItems, handleLearnMore }) => {
    return (
       <div className={styles.card}>
          <img className={styles.card__image} src={image} alt="" />
@@ -23,6 +23,7 @@ export const PokemonCard = ({ id, image, name, price, handleAddToCart, handleLea
                color="warning"
                disableElevation
                onClick={() => handleAddToCart({ id, image, name, price, quantity: 1 })}
+               disabled={cartItems.some((item) => item.id === id)}
             >
                Add to Cart
             </Button>
@@ -39,4 +40,3 @@ export const PokemonCard = ({ id, image, name, price, handleAddToCart, handleLea
       </div>
    );
 };
-
