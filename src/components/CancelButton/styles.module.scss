@@ -1,0 +1,19 @@
+.cancelButton {
+   width: 110px;
+   text-align: center;
+   font-weight: 600;
+   font-size: 16px;
+   color: #fff;
+   background-color: #34a976;
+   border-radius: 10px;
+   padding: 5px 0;
+   transition: all 0.2s ease;
+
+   &:hover {
+      background-color: #4fffb3;
+   }
+
+   &:active {
+      background-color: #277a56;
+   }
+}

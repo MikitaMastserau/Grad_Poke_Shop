@@ -13,7 +13,7 @@
    }
 }
 
-.card {
+.info {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
@@ -23,6 +23,13 @@
    &__image {
       height: 500px;
       width: 500px;
+   }
+
+   &__panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
    }
 }
 

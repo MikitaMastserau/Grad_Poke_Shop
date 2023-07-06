@@ -3,13 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getPokemonInfoThunk } from "../api";
 import { createStatsList } from "../utils/createStatsList";
 import { createAbilitiesList } from "../utils/createAbilitiesList";
+import { createSpritesList } from "../utils/createSpritesList";
 import { createTypesList } from "../utils/createTypesList";
 
 const initialState = {
+   id: 0,
    name: "",
    stats: {},
    abilities: {},
-   sprites: {},
+   sprites: [],
    types: [],
    height: 0,
    weight: 0,
@@ -29,16 +31,17 @@ const pokemonInfoSlice = createSlice({
             state.errors = null;
          })
          .addCase(getPokemonInfoThunk.fulfilled, (state, { payload }) => {
-            const { name, stats, abilities, sprites, types, height, weight, price } = payload;
+            const { id, name, stats, abilities, sprites, types, height, weight, price } = payload;
 
+            state.id = id;
             state.name = name;
             state.stats = createStatsList(stats);
             state.abilities = createAbilitiesList(abilities);
-            state.price = price;
-            state.sprites = sprites.other["official-artwork"].front_default;
+            state.sprites = createSpritesList(sprites);
             state.types = createTypesList(types);
             state.height = height;
             state.weight = weight;
+            state.price = price;
             state.isLoading = false;
             state.errors = null;
          })

@@ -1,12 +1,10 @@
-import { startCase } from "lodash";
-
 import { Title } from "components/Title";
-import { QuantityCounter } from "components/QuantityCounter";
-
-import pokecoinIcon from "static/icons/pokecoinIcon.png";
-import styles from "./styles.module.scss";
-import { Button } from "@mui/material";
 import { LoadingSpinner } from "components/LoadingSpinner";
+import { EmptyCart } from "../EmptyCart";
+import { CartItems } from "../CartItems";
+import { CartTotals } from "../CartTotals";
+
+import styles from "./styles.module.scss";
 
 export const CartLayout = ({
    cartItems,
@@ -22,8 +20,10 @@ export const CartLayout = ({
    clearCart,
    makeOrder,
 }) => {
+   const stylesForCover = (styles.cover) + " " + (((cartQuantity === 1) && styles.oneItem) || ((cartQuantity === 2) && styles.twoItems));
+
    return (
-      <>
+      <div className={styles.wrapper}>
          <Title title="Cart" />
 
          {errors && <p className={styles.errors}>{errors}</p>}
@@ -32,54 +32,28 @@ export const CartLayout = ({
 
             <div className={styles.container}>
                {isCartEmpty ? (
-                  <div className={styles.empty}>
-                     <p>Your cart is empty</p>
-                     <p>Why? Hurry up and buy pokemons!</p>
-                  </div>
+                  <EmptyCart />
                ) : (
-                  <div className={styles.wrapper}>
-                     <div className={styles.itemsList}>
-                        {cartItems.map(({ id, name, image, quantity, price }) => (
-                           <div className={styles.item} key={id}>
-                              <img src={image} alt="" />
-                              <p>{startCase(name)}</p>
-                              <QuantityCounter id={id} quantity={quantity} changedItemId={changedItemId} changeItemQuantity={changeItemQuantity} />
-                              <div className={styles.price}>
-                                 <img src={pokecoinIcon} alt="" />
-                                 <p>{price * quantity}</p>
-                              </div>
-                              <button className={styles.del} onClick={() => deleteItem(id)}>Delete</button>
-                           </div>
-                        ))}
-                     </div>
+                  <div className={stylesForCover}>
+                     <CartItems
+                        cartItems={cartItems}
+                        changedItemId={changedItemId}
+                        changeItemQuantity={changeItemQuantity}
+                        deleteItem={deleteItem}
+                     />
 
-                     <div className={styles.prices}>
-                        <p>Tsotal quantity: {cartQuantity}</p>
-                        <p>Total price: {totalPrice}</p>
-                        <p>Total amount: {totalAmount}</p>
-                        <Button
-                           size="large"
-                           variant="outlined"
-                           color="warning"
-                           disableElevation
-                           onClick={() => clearCart(cartItems)}
-                        >
-                           Clear Cart
-                        </Button>
-                        <Button
-                           size="large"
-                           variant="contained"
-                           color="warning"
-                           disableElevation
-                           onClick={() => makeOrder()}
-                        >
-                           Checkout
-                        </Button>
-                     </div>
+                     <CartTotals
+                        cartItems={cartItems}
+                        cartQuantity={cartQuantity}
+                        totalPrice={totalPrice}
+                        totalAmount={totalAmount}
+                        clearCart={clearCart}
+                        makeOrder={makeOrder}
+                     />
                   </div>
                )}
             </div>
          }
-      </>
+      </div>
    );
 };
