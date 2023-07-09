@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 import { Title } from "components/Title";
 import { LoadingSpinner } from "components/LoadingSpinner";
+import { SignUpForm } from "../SignUpForm";
 
 import { ROUTE_NAMES } from "routes/routeNames";
 
 import styles from "./styles.module.scss";
-import { SignUpForm } from "../SignUpForm";
 
 export const SignUpLayout = ({ data, isLoading, requestErrors, handleSubmit, handleChange, handleBlur, values, touched, errors }) => {
    return (

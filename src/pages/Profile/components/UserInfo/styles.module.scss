@@ -1,0 +1,48 @@
+.wrapper {
+   display: flex;
+   justify-content: center;
+
+   .user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 5px solid #348da9;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+
+      &__name {
+         font-weight: 700;
+         font-size: 20px;
+         text-transform: uppercase;
+         padding: 5px 0;
+      }
+
+      &__image {
+         width: 200px;
+         height: 200px;
+         object-fit: cover;
+      }
+
+      &__data {
+         text-align: start;
+      }
+
+      &__email {
+         font-weight: 400;
+         font-size: 18px;
+         padding: 5px 0;
+      }
+
+      &__phone {
+         font-weight: 300;
+         font-size: 18px;
+      }
+
+      &__gender {
+         font-weight: 300;
+         font-size: 18px;
+      }
+   }
+}
