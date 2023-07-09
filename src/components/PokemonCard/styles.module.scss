@@ -4,7 +4,7 @@
    text-align: center;
    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
    border-radius: 10px;
-   transition: 0.2s;
+   transition: all 0.3s ease;
 
    &:hover {
       box-shadow: 5px 9px 16px rgba(255, 160, 51, 0.5);
