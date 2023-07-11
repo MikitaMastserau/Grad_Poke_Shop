@@ -1,4 +1,5 @@
 import { startCase } from "lodash";
+import PropTypes from "prop-types";
 
 import { STAT_ICON_LIST } from "pages/PokemonInfo/config/iconsConfig";
 
@@ -19,4 +20,11 @@ export const StatsList = ({ stats }) => {
          </div>
       </div>
    );
+};
+
+StatsList.propTypes = {
+   stats: PropTypes.objectOf(PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.func,
+   ])).isRequired,
 };

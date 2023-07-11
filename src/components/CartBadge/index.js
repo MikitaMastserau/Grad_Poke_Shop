@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
+import PropTypes from "prop-types";
 
-import cartIcon from "static/icons/cartIcon.png";
 import { ROUTE_NAMES } from "routes/routeNames";
+import cartIcon from "static/icons/cartIcon.png";
 
 import styles from "./styles.module.scss";
 
@@ -19,7 +20,7 @@ export const CartBadge = ({ cartQuantity }) => {
       "& .MuiBadge-badge": {
          right: 5,
          top: 5,
-         border: `2px solid ${theme.palette.background.paper}`,
+         border: "2px solid #fff",
          padding: "0 4px",
       },
    }));
@@ -31,4 +32,8 @@ export const CartBadge = ({ cartQuantity }) => {
          </StyledBadge>
       </IconButton>
    );
+};
+
+CartBadge.propTypes = {
+   cartQuantity: PropTypes.number.isRequired,
 };

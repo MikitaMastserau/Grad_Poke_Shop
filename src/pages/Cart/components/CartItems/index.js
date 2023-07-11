@@ -1,4 +1,5 @@
 import { startCase } from "lodash";
+import PropTypes from "prop-types";
 
 import { QuantityCounter } from "components/QuantityCounter";
 import { DeleteDialog } from "../DeleteDialog";
@@ -23,4 +24,21 @@ export const CartItems = ({ cartItems, changedItemId, changeItemQuantity, delete
          ))}
       </div>
    )
+};
+
+CartItems.propTypes = {
+   cartItems: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      quantity: PropTypes.number,
+      price: PropTypes.number,
+      _id: PropTypes.string,
+   })).isRequired,
+   changedItemId: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.func,
+   ]),
+   changeItemQuantity: PropTypes.func.isRequired,
+   deleteItem: PropTypes.func.isRequired,
 };

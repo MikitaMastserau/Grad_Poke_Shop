@@ -1,5 +1,6 @@
 import { startCase } from "lodash";
 import Button from "@mui/material/Button";
+import PropTypes from "prop-types";
 
 import pokecoinIcon from "static/icons/pokecoinIcon.png";
 
@@ -39,4 +40,21 @@ export const PokemonCard = ({ id, image, name, price, handleAddToCart, cartItems
          </div>
       </div>
    );
+};
+
+PokemonCard.propTypes = {
+   id: PropTypes.number.isRequired,
+   image: PropTypes.string.isRequired,
+   name: PropTypes.string.isRequired,
+   price: PropTypes.number.isRequired,
+   handleAddToCart: PropTypes.func.isRequired,
+   cartItems: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      quantity: PropTypes.number,
+      price: PropTypes.number,
+      _id: PropTypes.string,
+   })).isRequired,
+   handleLearnMore: PropTypes.func.isRequired,
 };

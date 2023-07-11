@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { WelcomePage } from "../WelcomePage";
 import { HomePage } from "../HomePage";
 
@@ -10,4 +12,8 @@ export const HomeLayout = ({ isAuthenticated }) => {
          }
       </>
    )
+};
+
+HomeLayout.propTypes = {
+   isAuthenticated: PropTypes.bool.isRequired,
 };

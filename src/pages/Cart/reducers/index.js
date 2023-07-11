@@ -1,11 +1,11 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 import { getItemsThunk } from "../api/thunks/getItems";
 import { addItemThunk } from "../api/thunks/addItem";
 import { changeItemThunk } from "../api/thunks/changeItem";
 import { deleteItemThunk } from "../api/thunks/deleteItem";
 import { clearCartThunk } from "../api/thunks/clearCart";
 import { orderThunk } from "../api/thunks/order";
-
-const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
    itemsList: [],

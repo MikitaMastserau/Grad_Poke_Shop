@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-import { isOrdersLoadingSelector, ordersSelector } from "../selectors";
+import { errorsSelector, isOrdersLoadingSelector, ordersSelector } from "../selectors";
 import { ProfileLayout } from "../components/ProfileLayout";
 import { getOrderThunk } from "pages/Cart/api/thunks/getOrders";
 import { signInDataSelector } from "pages/SignIn/selectors";
@@ -12,6 +12,7 @@ export const ProfileContainer = () => {
    const profileData = useSelector(signInDataSelector);
    const profileOrders = useSelector(ordersSelector);
    const isLoading = useSelector(isOrdersLoadingSelector);
+   const errors = useSelector(errorsSelector);
 
    useEffect(() => {
       dispatch(getOrderThunk());
@@ -22,7 +23,8 @@ export const ProfileContainer = () => {
          <ProfileLayout
             profileData={profileData}
             profileOrders={profileOrders}
-            isLoading={isLoading} />
+            isLoading={isLoading}
+            errors={errors} />
       </>
    );
 };
