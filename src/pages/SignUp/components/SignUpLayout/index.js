@@ -1,20 +1,21 @@
+import CircularProgress from "@mui/material/CircularProgress";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { Title } from "components/Title";
-import { LoadingSpinner } from "components/LoadingSpinner";
 import { SignUpForm } from "../SignUpForm";
 
 import { ROUTE_NAMES } from "routes/routeNames";
 
 import styles from "./styles.module.scss";
 
-export const SignUpLayout = ({ data, isLoading, requestErrors, handleSubmit, handleChange, handleBlur, values, touched, errors }) => {
+export const SignUpLayout = ({ data, handleSubmit, handleChange, handleBlur, values, touched, isLoading, requestErrors, errors }) => {
    return (
       <div className={styles.wrapper}>
          <div className={styles.container}>
             <Title title="Sign Up" />
 
-            {isLoading ? <div className={styles.loading}><LoadingSpinner /></div> : (
+            {isLoading ? <div className={styles.loading}><CircularProgress color="warning" size={100} /></div> : (
                <>
                   {data?.data ? (
                      <>
@@ -37,4 +38,18 @@ export const SignUpLayout = ({ data, isLoading, requestErrors, handleSubmit, han
          </div>
       </div>
    );
+};
+
+SignUpLayout.propTypes = {
+   data: PropTypes.object,
+   handleChange: PropTypes.func.isRequired,
+   handleSubmit: PropTypes.func.isRequired,
+   handleBlur: PropTypes.func.isRequired,
+   values: PropTypes.object.isRequired,
+   touched: PropTypes.object.isRequired,
+   isLoading: PropTypes.bool.isRequired,
+   requestErrors: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+   ]),
 };

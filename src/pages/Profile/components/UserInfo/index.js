@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { SubTitle } from "components/SubTitle";
 
 import avatarIcon from "static/icons/avatarIcon.png";
@@ -5,7 +7,7 @@ import avatarIcon from "static/icons/avatarIcon.png";
 import styles from "./styles.module.scss";
 
 export const UserInfo = ({ profileData }) => {
-   const { email, firstName, gender, lastName, phone } = profileData;
+   const { email, firstName, lastName, gender, phone } = profileData;
 
    return (
       <>
@@ -23,4 +25,14 @@ export const UserInfo = ({ profileData }) => {
          </div>
       </>
    );
+};
+
+UserInfo.propTypes = {
+   profileData: PropTypes.shape({
+      email: PropTypes.string,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      gender: PropTypes.string,
+      phone: PropTypes.string,
+   }).isRequired,
 };

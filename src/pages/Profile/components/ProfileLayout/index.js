@@ -1,8 +1,10 @@
-import { LoadingSpinner } from "components/LoadingSpinner";
+import PropTypes from "prop-types";
 
 import { Title } from "components/Title";
+import { LoadingSpinner } from "components/LoadingSpinner";
+import { Errors } from "components/Errors";
 import { UserInfo } from "../UserInfo";
-import { OrdersHistory2 } from "../OrdersHistory";
+import { OrdersHistory } from "../OrdersHistory";
 
 import styles from "./styles.module.scss";
 
@@ -11,17 +13,35 @@ export const ProfileLayout = ({ profileData, profileOrders, isLoading, errors })
       <div className={styles.wrapper}>
          <Title title="Profile" />
 
-         {errors && <p className={styles.errors}>{errors}</p>}
-
          <div className={styles.container}>
-            {isLoading ? <div className={styles.loading}><LoadingSpinner /></div> :
+            {isLoading ? <LoadingSpinner /> :
                <>
-                  <UserInfo profileData={profileData} />
+                  {errors ? <Errors errors={errors} /> :
+                     <>
+                        <UserInfo profileData={profileData} />
 
-                  <OrdersHistory2 profileOrders={profileOrders} />
+                        <OrdersHistory profileOrders={profileOrders} />
+                     </>
+                  }
                </>
             }
          </div>
       </div>
    );
+};
+
+ProfileLayout.propTypes = {
+   profileData: PropTypes.shape({
+      email: PropTypes.string,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      gender: PropTypes.string,
+      phone: PropTypes.string,
+   }).isRequired,
+   profileOrders: PropTypes.array.isRequired,
+   isLoading: PropTypes.bool.isRequired,
+   errors: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+   ]),
 };

@@ -1,8 +1,10 @@
+import CircularProgress from "@mui/material/CircularProgress";
+import PropTypes from "prop-types";
+
 import { Title } from "components/Title";
-import { LoadingSpinner } from "components/LoadingSpinner";
+import { SignInForm } from "../SignInForm";
 
 import styles from "./styles.module.scss";
-import { SignInForm } from "../SignInForm";
 
 export const SignInLayout = ({ form, handleChange, handleSubmit, checked, handleCheckboxChange, isLoading, errors }) => {
    return (
@@ -10,7 +12,7 @@ export const SignInLayout = ({ form, handleChange, handleSubmit, checked, handle
          <div className={styles.container}>
             <Title title="Sign In" />
 
-            {isLoading ? <div className={styles.loading}><LoadingSpinner /></div> : (
+            {isLoading ? <div className={styles.loading}><CircularProgress color="warning" size={100} /></div> : (
                <>
                   <SignInForm form={form} handleChange={handleChange} handleSubmit={handleSubmit} checked={checked} handleCheckboxChange={handleCheckboxChange} />
 
@@ -27,4 +29,17 @@ export const SignInLayout = ({ form, handleChange, handleSubmit, checked, handle
          </div>
       </div >
    );
+};
+
+SignInLayout.propTypes = {
+   form: PropTypes.object.isRequired,
+   handleChange: PropTypes.func.isRequired,
+   handleSubmit: PropTypes.func.isRequired,
+   checked: PropTypes.bool.isRequired,
+   handleCheckboxChange: PropTypes.func.isRequired,
+   isLoading: PropTypes.bool.isRequired,
+   errors: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+   ]),
 };
