@@ -5,6 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import moment from "moment/moment";
 import { startCase } from "lodash";
+import PropTypes from "prop-types";
 
 import { SubTitle } from "components/SubTitle";
 
@@ -12,7 +13,7 @@ import pokecoinIcon from "static/icons/pokecoinIcon.png";
 
 import styles from "./styles.module.scss";
 
-export const OrdersHistory2 = ({ profileOrders }) => {
+export const OrdersHistory = ({ profileOrders }) => {
    const [expanded, setExpanded] = useState(false);
 
    const handleChange = (panel) => (_, isExpanded) => {
@@ -46,30 +47,6 @@ export const OrdersHistory2 = ({ profileOrders }) => {
    );
 };
 
-// export const OrdersHistory = ({ profileOrders }) => {
-//    return (
-//       <>
-//          <SubTitle color="orangered" title="Orders History" />
-//          <div className={styles.wrapper}>
-//             {profileOrders.map(({ totalPrice, itemsList, createdAt, _id }) => (
-//                <div className={styles.order} key={_id}>
-//                   <div className={styles.order__desc}>
-//                      <p>{createdAt.slice(0, 10)}</p>
-//                      <p>Total summary: {totalPrice} <img src={pokecoinIcon} alt="" /></p>
-//                   </div>
-//                   <div className={styles.order__items}>
-//                      {itemsList.map(({ id, name, image, quantity, price }) => (
-//                         <div key={id}>
-//                            <img src={image} alt={name} />
-//                            <p>{startCase(name)}</p>
-//                            <p>Quantity: {quantity}</p>
-//                            <p>Price: {price * quantity}</p>
-//                         </div>
-//                      ))}
-//                   </div>
-//                </div>
-//             ))}
-//          </div>
-//       </>
-//    );
-// };
+OrdersHistory.propTypes = {
+   profileOrders: PropTypes.array.isRequired,
+};

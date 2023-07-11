@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import { Title } from "components/Title";
 import { LoadingSpinner } from "components/LoadingSpinner";
+import { Errors } from "components/Errors";
 import { SubTitle } from "components/SubTitle";
 import { DescriptionList } from "../DescriptionList";
 import { PriceList } from "../PriceList";
@@ -30,24 +31,26 @@ export const PokemonInfoLayout = ({
       <div className={styles.wrapper}>
          <Title title="Pokemon Info" />
 
-         {isLoading ? <div className={styles.loading}><LoadingSpinner /></div> :
-            <div className={styles.container}>
-               {errors ? <p className={styles.errors}>{errors}</p> :
-                  <>
-                     <SubTitle title={startCase(name)} color={"orangered"} />
-                     <div className={styles.info}>
-                        <img className={styles.info__image} src={sprites[0]} alt="" />
-                        <div className={styles.info__panel}>
-                           <DescriptionList types={types} height={height} weight={weight} />
-                           <PriceList id={id} image={sprites[1]} name={name} price={price} handleAddToCart={addItemToCart} cartItems={cartItems} />
+         <div className={styles.container}>
+            {isLoading ? <LoadingSpinner /> :
+               <>
+                  {errors ? <Errors errors={errors} /> :
+                     <>
+                        <SubTitle title={startCase(name)} color={"orangered"} />
+                        <div className={styles.info}>
+                           <img className={styles.info__image} src={sprites[0]} alt="" />
+                           <div className={styles.info__panel}>
+                              <DescriptionList types={types} height={height} weight={weight} />
+                              <PriceList id={id} image={sprites[1]} name={name} price={price} handleAddToCart={addItemToCart} cartItems={cartItems} />
+                           </div>
+                           <StatsList stats={stats} />
+                           <AbilitiesList abilities={abilities} />
                         </div>
-                        <StatsList stats={stats} />
-                        <AbilitiesList abilities={abilities} />
-                     </div>
-                  </>
-               }
-            </div>
-         }
+                     </>
+                  }
+               </>
+            }
+         </div>
       </div>
    );
 };
@@ -75,5 +78,8 @@ PokemonInfoLayout.propTypes = {
       _id: PropTypes.string,
    })).isRequired,
    isLoading: PropTypes.bool.isRequired,
-   errors: PropTypes.string,
+   errors: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+   ]),
 };
