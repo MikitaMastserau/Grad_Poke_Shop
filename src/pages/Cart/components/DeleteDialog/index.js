@@ -2,6 +2,7 @@ import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
+import PropTypes from "prop-types";
 
 import deleteIcon from "static/icons/deleteIcon.svg";
 import { CancelButton } from "components/CancelButton";
@@ -38,4 +39,9 @@ export const DeleteDialog = ({ id, deleteItem }) => {
          </Dialog>
       </ >
    );
+};
+
+DeleteDialog.propTypes = {
+   id: PropTypes.number.isRequired,
+   deleteItem: PropTypes.func.isRequired,
 };

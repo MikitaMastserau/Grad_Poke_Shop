@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { Title } from "components/Title";
 import { LoadingSpinner } from "components/LoadingSpinner";
 import { EmptyCart } from "../EmptyCart";
@@ -26,34 +28,58 @@ export const CartLayout = ({
       <div className={styles.wrapper}>
          <Title title="Cart" />
 
-         {errors && <p className={styles.errors}>{errors}</p>}
-
          {isLoading ? <div className={styles.loading}><LoadingSpinner /></div> :
 
             <div className={styles.container}>
-               {isCartEmpty ? (
-                  <EmptyCart />
-               ) : (
-                  <div className={stylesForCover}>
-                     <CartItems
-                        cartItems={cartItems}
-                        changedItemId={changedItemId}
-                        changeItemQuantity={changeItemQuantity}
-                        deleteItem={deleteItem}
-                     />
+               {errors ? <p className={styles.errors}>{errors}</p> :
+                  <>
+                     {isCartEmpty ? (
+                        <EmptyCart />
+                     ) : (
+                        <div className={stylesForCover}>
+                           <CartItems
+                              cartItems={cartItems}
+                              changedItemId={changedItemId}
+                              changeItemQuantity={changeItemQuantity}
+                              deleteItem={deleteItem}
+                           />
 
-                     <CartTotals
-                        cartItems={cartItems}
-                        cartQuantity={cartQuantity}
-                        totalPrice={totalPrice}
-                        totalAmount={totalAmount}
-                        clearCart={clearCart}
-                        makeOrder={makeOrder}
-                     />
-                  </div>
-               )}
+                           <CartTotals
+                              cartItems={cartItems}
+                              cartQuantity={cartQuantity}
+                              totalPrice={totalPrice}
+                              totalAmount={totalAmount}
+                              clearCart={clearCart}
+                              makeOrder={makeOrder}
+                           />
+                        </div>
+                     )}
+                  </>
+               }
             </div>
          }
       </div>
    );
+};
+
+CartLayout.propTypes = {
+   cartItems: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      quantity: PropTypes.number,
+      price: PropTypes.number,
+      _id: PropTypes.string,
+   })).isRequired,
+   cartQuantity: PropTypes.number.isRequired,
+   totalPrice: PropTypes.number.isRequired,
+   totalAmount: PropTypes.number.isRequired,
+   changedItemId: PropTypes.number,
+   isCartEmpty: PropTypes.bool.isRequired,
+   changeItemQuantity: PropTypes.func.isRequired,
+   isLoading: PropTypes.bool.isRequired,
+   errors: PropTypes.string,
+   deleteItem: PropTypes.func.isRequired,
+   clearCart: PropTypes.func.isRequired,
+   makeOrder: PropTypes.func.isRequired,
 };

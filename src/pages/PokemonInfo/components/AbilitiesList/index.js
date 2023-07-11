@@ -1,4 +1,7 @@
+import PropTypes from "prop-types";
+
 import { ABILITIES_ICON_LIST } from "pages/PokemonInfo/config/iconsConfig";
+
 import abilitiesListIcon from "static/icons/abilitiesListIcon.png";
 
 import styles from "./styles.module.scss";
@@ -22,4 +25,8 @@ export const AbilitiesList = ({ abilities }) => {
          </div>
       </div>
    );
+};
+
+AbilitiesList.propTypes = {
+   abilities: PropTypes.objectOf(PropTypes.string).isRequired,
 };

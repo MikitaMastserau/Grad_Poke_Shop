@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { Title } from "components/Title";
 import { LoadingSpinner } from "components/LoadingSpinner";
 import { Pagination } from "components/Pagination";

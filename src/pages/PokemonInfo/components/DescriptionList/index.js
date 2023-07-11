@@ -1,4 +1,5 @@
 import lowerCase from "lodash/lowerCase";
+import PropTypes from "prop-types";
 
 import styles from "./styles.module.scss";
 
@@ -27,4 +28,10 @@ export const DescriptionList = ({ types, height, weight }) => {
          })}
       </div>
    )
+};
+
+DescriptionList.propTypes = {
+   types: PropTypes.arrayOf(PropTypes.string).isRequired,
+   height: PropTypes.number.isRequired,
+   weight: PropTypes.number.isRequired,
 };

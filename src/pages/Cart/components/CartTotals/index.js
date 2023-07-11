@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import PaymentIcon from '@mui/icons-material/Payment';
+import PropTypes from "prop-types";
 
 import { ClearCartDialog } from "../ClearCartDialog";
 
@@ -26,4 +27,20 @@ export const CartTotals = ({ cartItems, cartQuantity, totalPrice, totalAmount, c
          </Button>
       </div>
    )
+};
+
+CartTotals.propTypes = {
+   cartItems: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      quantity: PropTypes.number,
+      price: PropTypes.number,
+      _id: PropTypes.string,
+   })).isRequired,
+   cartQuantity: PropTypes.number.isRequired,
+   totalPrice: PropTypes.number.isRequired,
+   totalAmount: PropTypes.number.isRequired,
+   clearCart: PropTypes.func.isRequired,
+   makeOrder: PropTypes.func.isRequired,
 };
