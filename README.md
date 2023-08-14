@@ -1,4 +1,4 @@
-# Grad_Poke_Shop
+# Poke-Shop
 Graduate work "Pokemon online store"
 
 ## Available Scripts
